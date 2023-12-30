@@ -37,6 +37,7 @@ Future main() async {
             useInheritedMediaQuery: true,
             debugShowCheckedModeBanner: false,
             builder: (context, widget) {
+              // kl
               return Theme(
                 data: MyTheme.getThemeData(),
                 child: MediaQuery(
