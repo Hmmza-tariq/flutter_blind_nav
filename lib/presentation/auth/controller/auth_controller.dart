@@ -5,6 +5,27 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController extends GetxController {
+  bool isLogin = false;
+  bool isLoading = false;
+  int caneId = 0;
+
+  @override
+  void onInit() {
+    isLogin = false;
+    isLoading = false;
+    super.onInit();
+  }
+
+  void toggleLogin() {
+    isLogin = !isLogin;
+    update(['AuthType']);
+  }
+
+  void toggleLoading() {
+    isLoading = !isLoading;
+    update(['AuthType']);
+  }
+
   Future<String?> authUser(LoginData data) async {
     final auth = FirebaseAuth.instance;
     try {

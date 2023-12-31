@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:blind_nav/data/database.dart';
+// import 'package:blind_nav/data/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,8 +15,8 @@ class BaseController extends GetxController {
   @override
   void onInit() {
     setUser();
-    _timer = Timer.periodic(const Duration(minutes: 1),
-        (Timer t) => DataBaseManager.addLocationHistory());
+    // _timer = Timer.periodic(const Duration(minutes: 1),
+    //     (Timer t) => DataBaseManager.addLocationHistory());
     super.onInit();
   }
 
