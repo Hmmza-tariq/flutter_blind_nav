@@ -20,6 +20,7 @@ class AssetsManager {
   static const helpIcon = 'assets/vectors/help.svg';
   static const logoutIcon = 'assets/vectors/logout.svg';
   static const location = 'assets/vectors/location.svg';
+  static const clear = 'assets/vectors/clear.svg';
   static const locationPin = 'assets/vectors/location_pin.svg';
 
   static const noData = 'assets/images/no_data.png';

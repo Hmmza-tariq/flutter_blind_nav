@@ -5,8 +5,7 @@ class MySharedPref {
 
   static late SharedPreferences _sharedPreferences;
 
-  static const String _fcmTokenKey = 'fcm_token';
-  static const String _lightThemeKey = 'is_theme_light';
+  static const String _caneId = 'cane_id';
   static const String _urduKey = 'is_lang_urdu';
   static const String _myLocation = 'my_location';
   static const String _caneLocation = 'cane_location';
@@ -19,23 +18,15 @@ class MySharedPref {
     _sharedPreferences = sharedPreferences;
   }
 
-  static Future<void> setThemeIsLight(bool lightTheme) =>
-      _sharedPreferences.setBool(_lightThemeKey, lightTheme);
+  static Future<void> setCaneId(String caneId) =>
+      _sharedPreferences.setString(_caneId, caneId);
 
-  static bool getThemeIsLight() =>
-      _sharedPreferences.getBool(_lightThemeKey) ?? true;
+  static String getCaneId() => _sharedPreferences.getString(_caneId) ?? '';
 
   static Future<void> setIsUrdu(bool isUrdu) =>
       _sharedPreferences.setBool(_urduKey, isUrdu);
 
   static bool getIsUrdu() => _sharedPreferences.getBool(_urduKey) ?? false;
-
-  static Future<void> setFcmToken(String token) =>
-      _sharedPreferences.setString(_fcmTokenKey, token);
-
-  static String? getFcmToken() => _sharedPreferences.getString(_fcmTokenKey);
-
-  static Future<void> clear() async => await _sharedPreferences.clear();
 
   static Future<void> setMyLocation(String value) async =>
       await _sharedPreferences.setString(_myLocation, value);
@@ -48,4 +39,6 @@ class MySharedPref {
 
   static String? getCaneLocation() =>
       _sharedPreferences.getString(_caneLocation) ?? 'cane location';
+
+  static Future<void> clear() async => await _sharedPreferences.clear();
 }

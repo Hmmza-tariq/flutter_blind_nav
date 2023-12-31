@@ -3,6 +3,42 @@ import 'package:geocoding/geocoding.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkUtils {
+  List<String> addresses = [
+    'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address'
+        'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address'
+        'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address',
+    'address'
+  ];
+  List<String> getAddresses() {
+    return addresses;
+  }
+
   Future<String?> fetchUrl(Uri url, {Map<String, String>? header}) async {
     try {
       final response = await http.get(url, headers: header);

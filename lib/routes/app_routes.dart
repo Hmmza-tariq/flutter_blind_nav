@@ -11,7 +11,6 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const HISTORY = _Paths.HISTORY;
   static const SETTINGS = _Paths.SETTINGS;
-  static const CANE_ID = _Paths.CANE_ID;
 }
 
 abstract class _Paths {
@@ -23,5 +22,4 @@ abstract class _Paths {
   static const HOME = '/home';
   static const HISTORY = '/history';
   static const SETTINGS = '/settings';
-  static const CANE_ID = '/cane-id';
 }

@@ -2,6 +2,7 @@ import 'package:blind_nav/config/strings_manager.dart';
 import 'package:blind_nav/data/locations.dart';
 import 'package:blind_nav/data/my_shared_pref.dart';
 import 'package:blind_nav/firebase_options.dart';
+import 'package:blind_nav/presentation/base/controllers/base_controller.dart';
 import 'package:blind_nav/routes/app_pages.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ Future main() async {
   );
   await MySharedPref.init();
   await Locations().getLocations();
+  BaseController.caneId = MySharedPref.getCaneId();
   runApp(
     MultiProvider(
       providers: [

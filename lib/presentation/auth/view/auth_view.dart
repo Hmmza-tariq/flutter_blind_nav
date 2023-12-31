@@ -31,7 +31,7 @@ class AuthView extends GetView<AuthController> {
           ],
           onSubmitAnimationCompleted: () {
             FocusScope.of(context).unfocus();
-            Get.offNamed(Routes.CANE_ID);
+            Get.offNamed(Routes.BASE);
           },
           onRecoverPassword: controller.recoverPassword,
         );

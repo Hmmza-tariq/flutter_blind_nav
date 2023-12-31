@@ -40,6 +40,7 @@ class StringsManager with ChangeNotifier {
   static String _chooseLocation = "Choose Location";
   static String _openMaps = "Open Maps";
   static String _navigate = "Find route";
+  static String _clear = "Clear data";
 
   StringsManager(bool isUrdu, {String? location}) {
     setLanguage(isUrdu);
@@ -106,6 +107,7 @@ class StringsManager with ChangeNotifier {
         : "No Products in listed!";
     _openMaps = isUrdu ? "نقشہ کھولیں" : "Open Maps";
     _navigate = isUrdu ? "راستہ تلاش کریں" : "Find route";
+    _clear = isUrdu ? "ڈیٹا صاف کریں" : "Clear data";
   }
 
   bool get isUrdu => _isUrdu;
@@ -148,4 +150,5 @@ class StringsManager with ChangeNotifier {
   String get noItemInAds => _noItemInAds;
   String get openMaps => _openMaps;
   String get navigate => _navigate;
+  String get clear => _clear;
 }

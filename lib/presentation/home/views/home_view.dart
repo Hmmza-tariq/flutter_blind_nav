@@ -2,6 +2,7 @@ import 'package:blind_nav/config/strings_manager.dart';
 import 'package:blind_nav/data/locations.dart';
 import 'package:blind_nav/presentation/home/views/widgets/location_widget.dart';
 import 'package:blind_nav/presentation/widgets/screen_title.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
@@ -104,9 +105,19 @@ class HomeView extends GetView<HomeController> {
               controller: controller,
               isMine: true,
             ),
-            LocationWidget(
-              controller: controller,
-              isMine: false,
+            FirebaseAnimatedList(
+              reverse: true,
+              shrinkWrap: true,
+              query: controller.ref.limitToLast(1),
+              itemBuilder: (context, snapshot, animation, index) {
+                controller.getAddress(
+                    snapshot.child('Latitude').value.toString(),
+                    snapshot.child('Longitude').value.toString());
+                return LocationWidget(
+                  controller: controller,
+                  isMine: false,
+                );
+              },
             ),
             10.verticalSpace,
             GetBuilder<HomeController>(
@@ -162,21 +173,12 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                 ),
                                 MarkerLayer(
-                                  markers: [Locations.customMarker],
+                                  markers: [controller.customMarker],
                                   rotate: true,
                                   alignment: Alignment.topCenter,
                                 )
                               ])
                         : Container(),
-                    // GoogleMap(
-                    //   mapType: MapType.normal,
-                    //   initialCameraPosition: CameraPosition(
-                    //     target: LatLng(controller.myLocation.latitude,
-                    //         controller.myLocation.longitude),
-                    //     zoom: 14.4746,
-                    //   ),
-                    //   markers: controller.createMarkers(),
-                    // ),
                   );
                 }),
             20.verticalSpace,

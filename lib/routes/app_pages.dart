@@ -2,8 +2,6 @@ import 'package:blind_nav/presentation/auth/binding/auth_binding.dart';
 import 'package:blind_nav/presentation/auth/view/auth_view.dart';
 import 'package:blind_nav/presentation/base/bindings/base_binding.dart';
 import 'package:blind_nav/presentation/base/views/base_view.dart';
-import 'package:blind_nav/presentation/cane_id/binding/cane_id_binding.dart';
-import 'package:blind_nav/presentation/cane_id/view/cane_id_view.dart';
 import 'package:blind_nav/presentation/history/bindings/history_binding.dart';
 import 'package:blind_nav/presentation/history/views/history_view.dart';
 import 'package:blind_nav/presentation/home/bindings/home_binding.dart';
@@ -32,11 +30,6 @@ class AppPages {
       name: _Paths.AUTH,
       page: () => const AuthView(),
       binding: AuthBinding(),
-    ),
-    GetPage(
-      name: _Paths.CANE_ID,
-      page: () => const CaneIdView(),
-      binding: CaneIdBinding(),
     ),
 
     GetPage(

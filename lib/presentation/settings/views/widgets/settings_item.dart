@@ -1,4 +1,3 @@
-import 'package:blind_nav/config/assets_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -60,15 +59,15 @@ class SettingsItem extends StatelessWidget {
                 activeColor: theme.primaryColor,
               ),
             )
-          : Container(
+          : SizedBox(
               width: 40.w,
               height: 40.h,
-              decoration: BoxDecoration(
-                color: theme.primaryColor,
-                borderRadius: BorderRadius.circular(10.r),
-              ),
-              child: SvgPicture.asset(AssetsManager.forwardArrowIcon,
-                  fit: BoxFit.none),
+              // decoration: BoxDecoration(
+              //   color: theme.primaryColor,
+              //   borderRadius: BorderRadius.circular(10.r),
+              // ),
+              // child: SvgPicture.asset(AssetsManager.forwardArrowIcon,
+              //     fit: BoxFit.none),
             ),
     );
   }

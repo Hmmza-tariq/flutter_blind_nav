@@ -1,5 +1,6 @@
 import 'package:blind_nav/config/assets_manager.dart';
 import 'package:blind_nav/config/strings_manager.dart';
+import 'package:blind_nav/data/my_shared_pref.dart';
 import 'package:blind_nav/presentation/auth/controller/auth_controller.dart';
 import 'package:blind_nav/presentation/base/controllers/base_controller.dart';
 import 'package:blind_nav/presentation/widgets/screen_title.dart';
@@ -43,7 +44,7 @@ class SettingsView extends GetView<SettingsController> {
                     title: BaseController.name,
                     icon: AssetsManager.userIcon,
                     isAccount: true,
-                    description: BaseController.email,
+                    description: 'Cane Id#${BaseController.caneId}',
                   );
                 }),
             30.verticalSpace,
@@ -52,13 +53,6 @@ class SettingsView extends GetView<SettingsController> {
                   fontSize: 20.sp,
                   fontWeight: FontWeight.normal,
                 )),
-            // 20.verticalSpace,
-            // SettingsItem(
-            //   title: Provider.of<StringsManager>(context).darkMode,
-            //   icon: AssetsManager.themeIcon,
-            //   isDark: true,
-            //   description: '',
-            // ),
             25.verticalSpace,
             SettingsItem(
               title:
@@ -68,17 +62,27 @@ class SettingsView extends GetView<SettingsController> {
               description: '',
             ),
             25.verticalSpace,
-            SettingsItem(
-              title: Provider.of<StringsManager>(context).help,
-              icon: AssetsManager.helpIcon,
-              description: '',
-            ),
-            25.verticalSpace,
+            // SettingsItem(
+            //   title: Provider.of<StringsManager>(context).help,
+            //   icon: AssetsManager.helpIcon,
+            //   description: '',
+            // ),
+            // 25.verticalSpace,
             SettingsItem(
               title: Provider.of<StringsManager>(context).logout,
               icon: AssetsManager.logoutIcon,
               description: '',
               onTap: () => AuthController().logout(),
+            ),
+            25.verticalSpace,
+            SettingsItem(
+              title: Provider.of<StringsManager>(context).clear,
+              icon: AssetsManager.clear,
+              description: '',
+              onTap: () {
+                MySharedPref.clear();
+                AuthController().logout();
+              },
             ),
             20.verticalSpace,
           ],

@@ -91,6 +91,7 @@ class AuthController extends GetxController {
   void logout() async {
     BaseController.name = '';
     BaseController.email = '';
+    BaseController.caneId = '';
     await FirebaseAuth.instance.signOut();
   }
 

@@ -1,5 +1,6 @@
 import 'package:blind_nav/config/assets_manager.dart';
 import 'package:blind_nav/config/strings_manager.dart';
+import 'package:blind_nav/data/my_shared_pref.dart';
 import 'package:blind_nav/presentation/history/views/history_view.dart';
 import 'package:blind_nav/presentation/home/views/home_view.dart';
 import 'package:blind_nav/presentation/settings/views/settings_view.dart';
@@ -22,16 +23,62 @@ class BaseView extends GetView<BaseController> {
         extendBody: true,
         body: SafeArea(
           bottom: false,
-          child: IndexedStack(
-            index: controller.currentIndex,
-            children: const [
-              HomeView(),
-              HistoryView(),
-              // AddItemView(),
-              // MyAdsView(),
-              SettingsView()
-            ],
-          ),
+          child: BaseController.caneId != ''
+              ? IndexedStack(
+                  index: controller.currentIndex,
+                  children: const [
+                    HomeView(),
+                    HistoryView(),
+                    // AddItemView(),
+                    // MyAdsView(),
+                    SettingsView()
+                  ],
+                )
+              : Center(
+                  child: Container(
+                      height: 150.h,
+                      width: 300.w,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(20)),
+                      ),
+                      child: Center(
+                          child: ListTile(
+                              subtitle: TextField(
+                                style: const TextStyle(color: Colors.white),
+                                onChanged: (value) =>
+                                    BaseController.caneId = value,
+                                decoration: const InputDecoration(
+                                  hintText: 'Enter the Cane Id',
+                                  hintStyle: TextStyle(color: Colors.white),
+                                ),
+                                keyboardType: TextInputType.number,
+                              ),
+                              trailing: CircleAvatar(
+                                backgroundColor: Colors.white,
+                                child: IconButton(
+                                    onPressed: () {
+                                      if (BaseController.caneId != '') {
+                                        MySharedPref.setCaneId(
+                                            BaseController.caneId);
+                                        controller.toggleIdAdded();
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          const SnackBar(
+                                            content: Text(
+                                                'Please enter the Cane Id'),
+                                          ),
+                                        );
+                                      }
+                                    },
+                                    icon: Icon(
+                                      Icons.arrow_forward,
+                                      color: Theme.of(context).primaryColor,
+                                    )),
+                              )))),
+                ),
         ),
         bottomNavigationBar: Container(
           padding: EdgeInsets.only(top: 10.h, bottom: 20.h),

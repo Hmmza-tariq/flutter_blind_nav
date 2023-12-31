@@ -1,5 +1,4 @@
 import 'package:blind_nav/data/models/location_model.dart';
-import 'package:flutter_map/flutter_map.dart' as flutter_map;
 import 'package:blind_nav/config/strings_manager.dart';
 import 'package:blind_nav/data/my_shared_pref.dart';
 import 'package:blind_nav/utils/network_utils.dart';
@@ -7,18 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:latlong2/latlong.dart' as latLng;
 
 class Locations {
   static late LocationModel myLocation;
   static late LocationModel caneLocation;
-  static late flutter_map.Marker customMarker;
 
   Future<void> getLocations() async {
     await getMyLocation();
     await getCaneLocation();
-    Locations.customMarker = buildPin(latLng.LatLng(
-        Locations.caneLocation.latitude, Locations.caneLocation.longitude));
   }
 
   Future<String?> getMyLocation() async {
@@ -44,11 +39,13 @@ class Locations {
   }
 
   Future<String?> getCaneLocation() async {
-    //get cane location from firebase
-    Locations.caneLocation =
-        LocationModel(latitude: 33.630, longitude: 72.9575984, address: 'EME');
-    debugPrint('latitude: 33.630, longitude: 72.9575984, address: EME');
-    return 'EME';
+    Locations.caneLocation = LocationModel(
+        latitude: Locations.myLocation.latitude,
+        longitude: Locations.myLocation.longitude,
+        address: Locations.myLocation.address);
+    debugPrint(
+        '1- cane latitude: ${Locations.caneLocation.latitude},longitude: ${Locations.caneLocation.longitude} address: ${Locations.caneLocation.address}');
+    return Locations.caneLocation.address;
   }
 
   void setMyLocation(String? location, context) {
@@ -67,11 +64,4 @@ class Locations {
         .setCaneLocation(location);
     MySharedPref.setCaneLocation(location);
   }
-
-  flutter_map.Marker buildPin(latLng.LatLng point) => flutter_map.Marker(
-        point: point,
-        child: const Icon(Icons.blind_rounded, size: 60, color: Colors.orange),
-        width: 60,
-        height: 60,
-      );
 }

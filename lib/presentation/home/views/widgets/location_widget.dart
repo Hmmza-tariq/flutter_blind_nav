@@ -4,6 +4,7 @@ import 'package:blind_nav/data/locations.dart';
 import 'package:blind_nav/data/models/location_model.dart';
 import 'package:blind_nav/presentation/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -23,13 +24,17 @@ class LocationWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
+        SizedBox(
+          width: 200.w,
+          child: Text(
             isMine
                 ? Locations.myLocation.address
                 : Locations.caneLocation.address,
-            style: context.theme.textTheme.displayMedium,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis),
+            style: context.theme.textTheme.displaySmall,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
         ElevatedButton(
           onPressed: () async {
             isMine
