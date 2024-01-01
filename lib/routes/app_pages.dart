@@ -31,7 +31,6 @@ class AppPages {
       page: () => const AuthView(),
       binding: AuthBinding(),
     ),
-
     GetPage(
       name: _Paths.BASE,
       page: () => const BaseView(),
@@ -47,49 +46,10 @@ class AppPages {
       page: () => const HistoryView(),
       binding: HistoryBinding(),
     ),
-    // GetPage(
-    //   name: _Paths.MY_ADS,
-    //   page: () => const MyAdsView(),
-    //   binding: MyAdsBinding(),
-    // ),
-    // GetPage(
-    //   name: _Paths.Chat,
-    //   page: () => const ChatView(),
-    //   binding: ChatBinding(),
-    // ),
-    // GetPage(
-    //   name: _Paths.NOTIFICATIONS,
-    //   page: () => const NotificationsView(),
-    //   binding: NotificationsBinding(),
-    // ),
-    // GetPage(
-    //   name: _Paths.SEARCH,
-    //   page: () => const SearchView(),
-    //   binding: SearchBinding(),
-    // ),
-    // GetPage(
-    //   name: _Paths.LOCATION,
-    //   page: () => const LocationView(),
-    //   binding: LocationBinding(),
-    // ),
     GetPage(
       name: _Paths.SETTINGS,
       page: () => const SettingsView(),
       binding: SettingsBinding(),
     ),
-    // GetPage(
-    //   name: _Paths.PRODUCT_DETAILS,
-    //   page: () => const ProductDetailsView(),
-    //   binding: ProductDetailsBinding(),
-    //   transition: Transition.rightToLeft,
-    //   transitionDuration: const Duration(milliseconds: 250),
-    // ),
-    // GetPage(
-    //   name: _Paths.PRODUCT_DETAILS_EDIT,
-    //   page: () => const ProductDetailsEditView(),
-    //   binding: ProductDetailsEditBinding(),
-    //   transition: Transition.rightToLeft,
-    //   transitionDuration: const Duration(milliseconds: 250),
-    // ),
   ];
 }

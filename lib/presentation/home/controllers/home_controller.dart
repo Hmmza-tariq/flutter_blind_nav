@@ -13,6 +13,9 @@ class HomeController extends GetxController {
   bool isLoading = false;
   String myAddress = "";
   late flutter_map.Marker customMarker;
+  final ref = FirebaseDatabase.instance
+      .ref("BlindNav-Data")
+      .child(BaseController.caneId);
 
   @override
   void onInit() {
@@ -20,12 +23,8 @@ class HomeController extends GetxController {
     customMarker = buildPin(latLng.LatLng(
         Locations.caneLocation.latitude, Locations.caneLocation.longitude));
     update(['Map']);
-    // update(['history']);
   }
 
-  final ref = FirebaseDatabase.instance
-      .ref("BlindNav-Data")
-      .child(BaseController.caneId);
   Future<void> openMaps(LocationModel locations) async {
     if (await MapLauncher.isMapAvailable(MapType.google) != null) {
       await MapLauncher.showMarker(

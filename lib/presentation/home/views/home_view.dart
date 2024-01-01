@@ -20,60 +20,6 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Theme.of(context).primaryColor,
-      //   title: Row(
-      //     children: [
-      //       GestureDetector(
-      //         onTap: () {
-      //           // Get.toNamed(Routes.LOCATION);
-      //         },
-      //         child: Row(
-      //           mainAxisSize: MainAxisSize.min,
-      //           children: [
-      //             Icon(
-      //               Icons.location_on,
-      //               color: context.theme.iconTheme.color,
-      //             ),
-      //             SizedBox(
-      //               width: 100.w,
-      //               child: Text(
-      //                 Provider.of<StringsManager>(context).location,
-      //                 style: context.theme.textTheme.bodyMedium,
-      //                 maxLines: 1,
-      //                 overflow: TextOverflow.ellipsis,
-      //               ),
-      //             ),
-      //           ],
-      //         ),
-      //       ),
-      //       const SizedBox(width: 10),
-      //       Expanded(
-      //         child: TextField(
-      //           decoration: InputDecoration(
-      //             hintText: Provider.of<StringsManager>(context).search,
-      //             filled: true,
-      //             fillColor: Colors.white,
-      //             border: OutlineInputBorder(
-      //               borderRadius: BorderRadius.circular(10),
-      //               borderSide: BorderSide.none,
-      //             ),
-      //             prefixIcon: const Icon(Icons.search, color: Colors.grey),
-      //           ),
-      //         ),
-      //       ),
-      //     ],
-      //   ),
-      //   actions: [
-      //     IconButton(
-      //       onPressed: () {
-      //         // Get.toNamed(Routes.NOTIFICATIONS);
-      //       },
-      //       icon: const Icon(Icons.notifications),
-      //     ),
-      //   ],
-      // ),
-
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: ListView(
