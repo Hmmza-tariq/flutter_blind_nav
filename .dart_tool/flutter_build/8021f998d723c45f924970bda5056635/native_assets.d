@@ -1,0 +1,1 @@
+ D:\\Android\ Projects\\blind_nav\\.dart_tool\\flutter_build\\8021f998d723c45f924970bda5056635\\native_assets.yaml: 
